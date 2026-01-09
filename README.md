@@ -13,7 +13,7 @@ A web-based tool to optimize your Division 2 gear builds based on your inventory
 ## 📋 How to Use
 
 ### Step 1: Copy the Google Sheets Template
-1. Open the [Inventory Template](https://docs.google.com/spreadsheets/d/1FR3JVyLr3ImyVn5QL2Q8tOKmshi3TgVunAVsyehQ-_U/edit?usp=sharing)
+1. Open the [Inventory Template](https://docs.google.com/spreadsheets/d/1FR3JVyLr3ImyVn5QL2Q8tOKmshi3TgVunAVsyehQ-_U/copy)
 2. Click **File** → **Make a copy** to save it to your own Google Drive
 
 ### Step 2: Fill Out Your Inventory
