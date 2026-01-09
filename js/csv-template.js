@@ -35,9 +35,16 @@ const CSVTemplate = {
             '# slot: mask backpack chest gloves holster kneepads',
             '# rarity: high-end named exotic gearset',
             '# core_attribute: weapon_damage armor skill_tier',
-            '# attribute types: critChance critDamage headshot weaponDamage arDamage smgDamage lmgDamage mmrDamage rifleDamage damageToArmor damageToHealth armor health hazardProtection skillDamage skillHaste skillRepair skillDuration statusEffects',
-            '# talents (chest): Glass Cannon Obliterate Braced Unbreakable Vanguard Overwatch Kinetic Momentum Spotter Intimidate',
-            '# talents (backpack): Vigilance Composure Concussion Bloodsucker Adrenaline Rush Opportunistic Tech Support Combined Arms'
+            '# BRANDS: "Ceska Vyroba" "Providence Defense" "Grupo Sombra" "Walker Harris & Co" "Fenris Group AB" "Overlord Armaments" "Sokolov Concern" "Petrov Defense Group" "Airaldi Holdings" "Badger Tuff" "Murakami Industries" "Alps Summit Armaments" "Hana-U Corporation" "Wyvern Wear" "China Light Industries" "Empress International" "Douglas & Harding" "Richter & Kaiser" "Gila Guard" "Golan Gear" "Belstone Armory" "Yaahl Gear" "5.11 Tactical" "Uzina Getica" "Palisade Steelworks" "Brazos de Arcabuz" "Electrique" "Habsburg Guard" "Lengmo" "Zwiadowka"',
+            '# GEAR SETS: "Strikers Battlegear" "Heartbreaker" "Negotiators Dilemma" "True Patriot" "Ongoing Directive" "Hard Wired" "Eclipse Protocol" "Rigger" "Foundry Bulwark" "Future Initiative" "Hunters Fury" "Umbra Initiative" "Aces and Eights" "Tip of the Spear" "System Corruption" "Hotshot"',
+            '# NAMED ITEMS: "Contractors Gloves" "Fox Prayer" "Grupo Sombra Mask" "The Sacrifice" "The Gift" "Chainkiller"',
+            '# EXOTICS: "Coyotes Mask" "Vile" "Memento" "Tardigrade Armor System" "Ninjabike Messenger Kneepads" "Sawyers Kneepads" "Acostas Go-Bag" "Btsu Data Gloves" "Imperial Dynasty" "Dodge City Gunslingers Holster" "Ridgeways Pride" "Waveform" "Catharsis"',
+            '# RED attributes: critChance critDamage headshot weaponDamage weaponHandling arDamage smgDamage lmgDamage mmrDamage rifleDamage shotgunDamage pistolDamage marksmansRifleDamage damageToArmor damageToHealth damageToTarget',
+            '# BLUE attributes: armor armorPercent totalArmor bonusArmor health armorRegen armorOnKill healthOnKill incomingRepairs hazardProtection explosiveResist pulseResist disruptResist',
+            '# YELLOW attributes: skillDamage skillHaste skillRepair skillDuration skillEfficiency skillHealth statusEffects explosiveDamage',
+            '# OTHER attributes: reloadSpeed stability accuracy magazineSize ammoCapacity rateOfFire',
+            '# talents (chest): "Glass Cannon" "Obliterate" "Braced" "Unbreakable" "Vanguard" "Overwatch" "Kinetic Momentum" "Spotter" "Intimidate"',
+            '# talents (backpack): "Vigilance" "Composure" "Concussion" "Bloodsucker" "Adrenaline Rush" "Opportunistic" "Tech Support" "Combined Arms" "Shock and Awe"'
         ];
 
         return headerRow + '\n' + exampleRows.join('\n');

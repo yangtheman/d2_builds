@@ -181,42 +181,42 @@ const BuildOptimizer = {
         // Core attribute scoring
         if (item.coreAttribute) {
             const targetCores = config.targetCores;
-            if (targetCores[item.coreAttribute]) {
+            if (targetCores && targetCores[item.coreAttribute]) {
                 score += 100;
             }
         }
 
         // Attribute scoring based on priorities
-        const priorities = config.priorities;
+        const priorities = config.priorities || [];
         
-        if (item.attributes.attr1Type) {
+        if (item.attributes && item.attributes.attr1Type) {
             const priorityIndex = priorities.indexOf(item.attributes.attr1Type);
             if (priorityIndex !== -1) {
-                score += (10 - priorityIndex) * item.attributes.attr1Value;
+                score += (10 - priorityIndex) * (item.attributes.attr1Value || 0);
             }
         }
 
-        if (item.attributes.attr2Type) {
+        if (item.attributes && item.attributes.attr2Type) {
             const priorityIndex = priorities.indexOf(item.attributes.attr2Type);
             if (priorityIndex !== -1) {
-                score += (10 - priorityIndex) * item.attributes.attr2Value;
+                score += (10 - priorityIndex) * (item.attributes.attr2Value || 0);
             }
         }
 
         // Brand preference scoring
-        if (item.brand && config.preferredBrands.includes(item.brand)) {
+        if (item.brand && item.brand.trim() && config.preferredBrands && config.preferredBrands.includes(item.brand)) {
             score += 50;
         }
 
         // Gear set preference scoring
-        if (item.brand && config.preferredGearSets && 
+        if (item.brand && item.brand.trim() && config.preferredGearSets && 
             config.preferredGearSets.includes(item.brand)) {
             score += 75;
         }
 
         // Talent scoring
         if (item.talent) {
-            const slotTalents = config.preferredTalents[item.slot];
+            const slotTalents = config.preferredTalents && config.preferredTalents[item.slot];
             if (slotTalents && slotTalents.includes(item.talent)) {
                 score += 100;
             }
@@ -242,17 +242,17 @@ const BuildOptimizer = {
         // Brand synergy bonus
         const brandCounts = {};
         items.forEach(item => {
-            if (item.brand) {
+            if (item.brand && item.brand.trim()) {
                 brandCounts[item.brand] = (brandCounts[item.brand] || 0) + 1;
             }
         });
 
         Object.entries(brandCounts).forEach(([brand, count]) => {
-            if (BRANDS[brand]) {
+            if (brand && BRANDS[brand]) {
                 const bonusLevels = Object.keys(BRANDS[brand].bonuses).length;
                 score += count * 20 * Math.min(count, bonusLevels);
             }
-            if (GEAR_SETS[brand] && count >= 4) {
+            if (brand && GEAR_SETS[brand] && count >= 4) {
                 score += 200; // Gear set 4-piece bonus
             }
         });
@@ -293,11 +293,13 @@ const BuildOptimizer = {
             }
 
             // Add attributes
-            if (item.attributes.attr1Type && stats[item.attributes.attr1Type] !== undefined) {
-                stats[item.attributes.attr1Type] += item.attributes.attr1Value || 0;
-            }
-            if (item.attributes.attr2Type && stats[item.attributes.attr2Type] !== undefined) {
-                stats[item.attributes.attr2Type] += item.attributes.attr2Value || 0;
+            if (item.attributes) {
+                if (item.attributes.attr1Type && stats[item.attributes.attr1Type] !== undefined) {
+                    stats[item.attributes.attr1Type] += item.attributes.attr1Value || 0;
+                }
+                if (item.attributes.attr2Type && stats[item.attributes.attr2Type] !== undefined) {
+                    stats[item.attributes.attr2Type] += item.attributes.attr2Value || 0;
+                }
             }
 
             // Add mod values
@@ -309,11 +311,13 @@ const BuildOptimizer = {
         // Add brand bonuses
         const brandBonuses = this.calculateBrandBonuses(build);
         brandBonuses.forEach(bonus => {
-            Object.entries(bonus.stats).forEach(([stat, value]) => {
-                if (stats[stat] !== undefined) {
-                    stats[stat] += value;
-                }
-            });
+            if (bonus.stats) {
+                Object.entries(bonus.stats).forEach(([stat, value]) => {
+                    if (stats[stat] !== undefined) {
+                        stats[stat] += value;
+                    }
+                });
+            }
         });
 
         return stats;
@@ -327,18 +331,20 @@ const BuildOptimizer = {
 
         // Count brands
         items.forEach(item => {
-            if (item.brand) {
+            if (item.brand && item.brand.trim()) {
                 brandCounts[item.brand] = (brandCounts[item.brand] || 0) + 1;
             }
         });
 
         // Calculate bonuses
         Object.entries(brandCounts).forEach(([brand, count]) => {
+            if (!brand || !brand.trim()) return;
+            
             // Brand bonuses
             if (BRANDS[brand]) {
                 const brandData = BRANDS[brand];
                 for (let i = 1; i <= count && i <= 3; i++) {
-                    if (brandData.bonuses[i]) {
+                    if (brandData.bonuses && brandData.bonuses[i]) {
                         bonuses.push({
                             source: brand,
                             level: i,
@@ -352,7 +358,7 @@ const BuildOptimizer = {
             if (GEAR_SETS[brand]) {
                 const setData = GEAR_SETS[brand];
                 [2, 3, 4].forEach(level => {
-                    if (count >= level && setData.bonuses[level]) {
+                    if (count >= level && setData.bonuses && setData.bonuses[level]) {
                         const bonus = setData.bonuses[level];
                         if (typeof bonus === 'object') {
                             bonuses.push({

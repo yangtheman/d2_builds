@@ -413,6 +413,66 @@ const GEAR_SETS = {
         talent: 'Headache: First MMR headshot increases next headshot damage by 20%. Second consecutive headshot grants +10% armor. Third headshot refills magazine. Fourth+ headshots grant all three bonuses. Missing resets cycle.',
         backpackTalent: 'Blessed: You can miss one headshot before the cycle resets.',
         chestTalent: 'Daring: Increases bonus armor from 50% to 100%.'
+    },
+    'Aegis': {
+        bonuses: {
+            2: { totalArmor: 10 },
+            3: { hazardProtection: 15 },
+            4: 'talent_aegis'
+        },
+        talent: 'Vanguard Protocol: While at full armor, gain 10% weapon damage. Taking damage grants bonus armor equal to 20% of damage taken.',
+        backpackTalent: 'Bulwark: Increases bonus armor gain to 30%.',
+        chestTalent: 'Phalanx: Increases weapon damage bonus to 15%.'
+    },
+    'Virtuoso': {
+        bonuses: {
+            2: { weaponDamage: 10 },
+            3: { headshotDamage: 20 },
+            4: 'talent_virtuoso'
+        },
+        talent: 'Fortissimo: Headshot kills grant stacking damage bonus.',
+        backpackTalent: 'Crescendo: Increases max stacks.',
+        chestTalent: 'Forte: Increases damage per stack.'
+    },
+    'Tipping Scales': {
+        bonuses: {
+            2: { weaponDamage: 10 },
+            3: { critDamage: 15 },
+            4: 'talent_tipping'
+        },
+        talent: 'Sustainability: Alternating between two skills increases damage.',
+        backpackTalent: 'Balance: Extends buff duration.',
+        chestTalent: 'Equilibrium: Increases damage bonus.'
+    },
+    'Breaking Point': {
+        bonuses: {
+            2: { critChance: 10 },
+            3: { critDamage: 20 },
+            4: 'talent_breaking'
+        },
+        talent: 'Point of No Return: Critical hits build stacks that explode on threshold.',
+        backpackTalent: 'Cascade: Reduces stack threshold.',
+        chestTalent: 'Rupture: Increases explosion damage.'
+    },
+    'Refactor': {
+        bonuses: {
+            2: { skillHaste: 15 },
+            3: { repairSkills: 20 },
+            4: 'talent_refactor'
+        },
+        talent: 'Rebuild: Skill repairs grant bonus effects.',
+        backpackTalent: 'Optimize: Increases repair efficiency.',
+        chestTalent: 'Restructure: Extends buff duration.'
+    },
+    'Measured Assembly': {
+        bonuses: {
+            2: { skillDamage: 10 },
+            3: { skillHaste: 15 },
+            4: 'talent_measured'
+        },
+        talent: 'Precision: Skills gain bonus damage based on accuracy.',
+        backpackTalent: 'Calibrate: Increases accuracy bonus.',
+        chestTalent: 'Calculate: Adds critical hit chance to skills.'
     }
 };
 

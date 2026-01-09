@@ -233,11 +233,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (b.talent) {
                 return `<div class="stat-item"><span class="stat-label">${b.source} (${b.level}pc)</span><span class="stat-value">${b.talent}</span></div>`;
             }
+            if (!b.stats) return '';
             const statText = Object.entries(b.stats)
                 .map(([k, v]) => `+${v}% ${formatAttributeName(k)}`)
                 .join(', ');
             return `<div class="stat-item"><span class="stat-label">${b.source} (${b.level}pc)</span><span class="stat-value">${statText}</span></div>`;
-        }).join('');
+        }).filter(Boolean).join('');
 
         return `
             <h3 style="margin-top: 20px;">🏷️ Brand/Set Bonuses</h3>
