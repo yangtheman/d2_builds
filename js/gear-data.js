@@ -14,22 +14,24 @@ const BRANDS = {
         slots: ['mask', 'backpack', 'gloves'],
         bonuses: {
             1: { critChance: 10 },
-            2: { critDamage: 10 },
-            3: { critChance: 10 }
+            2: { hazardProtection: 10 },
+            3: { health: 90 }
         }
     },
     'Providence Defense': {
         slots: ['mask', 'backpack', 'chest', 'gloves', 'holster', 'kneepads'],
         bonuses: {
-            1: { critChance: 15 },
-            2: { critDamage: 10 },
-            3: { headshot: 10 }
+            1: { headshotDamage: 15 },
+            2: { critChance: 10 },
+            3: { critDamage: 15 }
         }
     },
     'Grupo Sombra': {
         slots: ['mask', 'chest', 'holster'],
         bonuses: {
-            1: { critDamage: 15 }
+            1: { critDamage: 15 },
+            2: { explosiveDamage: 20 },
+            3: { headshotDamage: 15 }
         }
     },
     'Walker Harris & Co': {
@@ -37,71 +39,71 @@ const BRANDS = {
         bonuses: {
             1: { weaponDamage: 5 },
             2: { damageToArmor: 5 },
-            3: { damageToHealth: 5 }
+            3: { damageToHealth: 10 }
         }
     },
     'Fenris Group AB': {
         slots: ['mask', 'backpack', 'chest', 'kneepads'],
         bonuses: {
             1: { arDamage: 10 },
-            2: { critDamage: 10 },
-            3: { critChance: 10 }
+            2: { reloadSpeed: 30 },
+            3: { stability: 50 }
         }
     },
     'Overlord Armaments': {
         slots: ['mask', 'chest', 'holster', 'kneepads'],
         bonuses: {
             1: { rifleDamage: 10 },
-            2: { damageToHealth: 10 },
-            3: { accuracy: 10 }
+            2: { accuracy: 30 },
+            3: { weaponHandling: 30 }
         }
     },
     'Sokolov Concern': {
         slots: ['mask', 'backpack', 'chest', 'gloves'],
         bonuses: {
             1: { smgDamage: 10 },
-            2: { critChance: 10 },
-            3: { critDamage: 10 }
+            2: { critDamage: 15 },
+            3: { critChance: 10 }
         }
     },
     'Petrov Defense Group': {
         slots: ['mask', 'backpack', 'chest', 'gloves'],
         bonuses: {
             1: { lmgDamage: 10 },
-            2: { damageToArmor: 5 },
-            3: { damageToHealth: 5 }
+            2: { weaponHandling: 15 },
+            3: { ammoCapacity: 50 }
         }
     },
     'Airaldi Holdings': {
         slots: ['mask', 'backpack', 'chest', 'kneepads'],
         bonuses: {
             1: { mmrDamage: 10 },
-            2: { headshot: 10 },
-            3: { critDamage: 10 }
+            2: { headshotDamage: 15 },
+            3: { damageToArmor: 5 }
         }
     },
     'Badger Tuff': {
         slots: ['mask', 'backpack', 'chest', 'kneepads'],
         bonuses: {
             1: { shotgunDamage: 10 },
-            2: { damageToArmor: 5 },
-            3: { armor: 10 }
+            2: { totalArmor: 5 },
+            3: { armorOnKill: 15 }
         }
     },
     'Murakami Industries': {
         slots: ['mask', 'backpack', 'chest', 'holster', 'kneepads'],
         bonuses: {
-            1: { healthRegen: 1 },
-            2: { skillDuration: 10 },
-            3: { health: 10 }
+            1: { skillDuration: 20 },
+            2: { repairSkills: 30 },
+            3: { skillDamage: 20 }
         }
     },
     'Alps Summit Armaments': {
         slots: ['mask', 'backpack', 'chest', 'gloves', 'holster', 'kneepads'],
         bonuses: {
-            1: { repairSkills: 10 },
-            2: { skillDuration: 15 },
-            3: { skillHaste: 10 }
+            1: { repairSkills: 20 },
+            2: { skillDuration: 30 },
+            3: { skillHaste: 30 }
         }
     },
     'Hana-U Corporation': {
@@ -109,73 +111,143 @@ const BRANDS = {
         bonuses: {
             1: { skillHaste: 10 },
             2: { skillDamage: 10 },
-            3: { skillHaste: 10 }
+            3: { weaponDamage: 10 }
         }
     },
     'Wyvern Wear': {
         slots: ['mask', 'gloves', 'kneepads'],
         bonuses: {
-            1: { skillDamage: 10 }
+            1: { skillDamage: 10 },
+            2: { statusEffects: 15 },
+            3: { skillDuration: 40 }
         }
     },
     'China Light Industries': {
         slots: ['mask', 'gloves', 'kneepads'],
         bonuses: {
-            1: { explosiveDamage: 10 }
+            1: { explosiveDamage: 15 },
+            2: { skillHaste: 20 },
+            3: { statusEffects: 20 }
         }
     },
     'Empress International': {
         slots: ['mask', 'backpack', 'chest', 'kneepads'],
         bonuses: {
-            1: { skillHaste: 10 },
-            2: { skillDuration: 10 },
+            1: { skillHealth: 10 },
+            2: { skillDamage: 10 },
             3: { skillEfficiency: 10 }
         }
     },
     'Douglas & Harding': {
         slots: ['mask', 'backpack', 'holster'],
         bonuses: {
-            1: { stability: 10 },
-            2: { accuracy: 10 },
-            3: { handling: 10 }
+            1: { pistolDamage: 20 },
+            2: { stability: 30 },
+            3: { accuracy: 50 }
         }
     },
     'Richter & Kaiser': {
         slots: ['mask', 'backpack', 'holster'],
         bonuses: {
-            1: { hazardProtection: 10 },
-            2: { resistExotic: 10 },
-            3: { health: 10 }
+            1: { incomingRepairs: 20 },
+            2: { explosiveResist: 25 },
+            3: { repairSkills: 40 }
         }
     },
     'Gila Guard': {
         slots: ['backpack', 'chest', 'holster', 'kneepads'],
         bonuses: {
-            1: { armor: 5 },
-            2: { healthRegen: 1 },
-            3: { bonusArmor: 10 }
+            1: { totalArmor: 5 },
+            2: { health: 60 },
+            3: { armorRegen: 2 }
         }
     },
     'Golan Gear': {
         slots: ['mask', 'chest', 'gloves', 'holster'],
         bonuses: {
-            1: { armor: 5 },
-            2: { health: 10 },
-            3: { armorRegen: 1 }
+            1: { statusEffects: 10 },
+            2: { armorRegen: 1.5 },
+            3: { totalArmor: 10 }
         }
     },
     'Belstone Armory': {
         slots: ['backpack', 'chest', 'gloves', 'kneepads'],
         bonuses: {
             1: { armorRegen: 1 },
-            2: { damageToArmor: 5 },
-            3: { armor: 5 }
+            2: { armorOnKill: 10 },
+            3: { incomingRepairs: 40 }
         }
     },
     'Yaahl Gear': {
         slots: ['mask', 'holster', 'kneepads'],
         bonuses: {
-            1: { hazardProtection: 10 }
+            1: { hazardProtection: 10 },
+            2: { incomingRepairs: 10 },
+            3: { hazardProtection: 10 }
+        }
+    },
+    '5.11 Tactical': {
+        slots: ['mask', 'backpack', 'chest', 'gloves', 'kneepads'],
+        bonuses: {
+            1: { hazardProtection: 10 },
+            2: { armorOnKill: 5 },
+            3: { damageToArmor: 10 }
+        }
+    },
+    'Uzina Getica': {
+        slots: ['mask', 'backpack', 'chest', 'gloves', 'holster', 'kneepads'],
+        bonuses: {
+            1: { magazineSize: 10 },
+            2: { ammoCapacity: 15 },
+            3: { reloadSpeed: 15 }
+        }
+    },
+    'Palisade Steelworks': {
+        slots: ['backpack', 'chest', 'gloves'],
+        bonuses: {
+            1: { totalArmor: 5 },
+            2: { stability: 15 },
+            3: { skillDamage: 10 }
+        }
+    },
+    'Brazos de Arcabuz': {
+        slots: ['mask', 'backpack', 'gloves', 'kneepads'],
+        bonuses: {
+            1: { statusEffects: 10 },
+            2: { skillHaste: 10 },
+            3: { explosiveDamage: 15 }
+        }
+    },
+    'Electrique': {
+        slots: ['mask', 'chest', 'gloves', 'holster'],
+        bonuses: {
+            1: { skillDamage: 10 },
+            2: { skillHaste: 10 },
+            3: { shockDamage: 15 }
+        }
+    },
+    'Habsburg Guard': {
+        slots: ['chest', 'gloves', 'holster', 'kneepads'],
+        bonuses: {
+            1: { totalArmor: 5 },
+            2: { pulseResist: 20 },
+            3: { health: 30 }
+        }
+    },
+    'Lengmo': {
+        slots: ['mask', 'backpack', 'gloves', 'holster'],
+        bonuses: {
+            1: { skillHaste: 10 },
+            2: { repairSkills: 15 },
+            3: { skillDuration: 20 }
+        }
+    },
+    'Zwiadowka': {
+        slots: ['mask', 'backpack', 'chest', 'holster'],
+        bonuses: {
+            1: { marksmansRifleDamage: 15 },
+            2: { stability: 15 },
+            3: { headshot: 15 }
         }
     }
 };
@@ -184,91 +256,163 @@ const BRANDS = {
 const GEAR_SETS = {
     'Strikers Battlegear': {
         bonuses: {
-            2: { weaponDamage: 15 },
-            3: { critDamage: 15 },
+            2: { weaponHandling: 15 },
+            3: { rateOfFire: 15 },
             4: 'talent_striker'
         },
-        talent: 'Striker Stack: Hitting enemies grants 0.5% weapon damage, stacks up to 100.'
+        talent: "Striker's Gamble: Weapon hits increase total weapon damage by 0.65%, stacking up to 100. Lose 1 stack/sec (0-50 stacks), 2 stacks/sec (50-100 stacks).",
+        backpackTalent: 'Risk Management: Increases total weapon damage per stack from 0.65% to 1%.',
+        chestTalent: 'Press the Advantage: Increases max stacks from 100 to 200.'
     },
     'Heartbreaker': {
         bonuses: {
-            2: { weaponDamage: 15 },
-            3: { damageToArmor: 15 },
+            2: { arDamage: 15, lmgDamage: 15 },
+            3: { weaponHandling: 15 },
             4: 'talent_heartbreaker'
         },
-        talent: 'Heartbreaker: Each round landing grants 1 stack. At 50 stacks, gain bonus armor and damage.'
+        talent: 'Heartstopper: Headshots pulse enemies for 5s. Hits on pulsed enemies add 1% bonus armor and 1% weapon damage, stacking up to 50. Lose 2 stacks/sec.',
+        backpackTalent: 'Cold: Increases bonus armor per stack from 1% to 2%.',
+        chestTalent: 'Max BPM: Increases max stacks from 50 to 100.'
     },
     'Negotiators Dilemma': {
         bonuses: {
-            2: { weaponDamage: 15 },
-            3: { critDamage: 15 },
+            2: { critChance: 15 },
+            3: { critDamage: 20 },
             4: 'talent_negotiators'
         },
-        talent: 'Hostage Taker: Mark enemies on crit, damage one to damage all marked.'
+        talent: 'Hostile Negotiations: Crits mark enemies for 20s (up to 3 marks). Critting marked enemy causes others to take 60% of damage dealt. Each marked enemy death grants +2% CHD, up to 20 stacks.',
+        backpackTalent: 'Critical Measures: Increases damage to additional marked enemies from 60% to 100%.',
+        chestTalent: 'Target Rich Environment: Increases max marked enemies from 3 to 5.'
     },
     'True Patriot': {
         bonuses: {
-            2: { weaponDamage: 10 },
-            3: { armor: 10 },
+            2: { ammoCapacity: 30 },
+            3: { magazineSize: 30 },
             4: 'talent_patriot'
         },
-        talent: 'Full Flag: Cycle through debuffs, white repairs armor.'
+        talent: 'Red, White, and Blue: Shooting enemies applies stacking debuffs - Red: +8% damage taken, White: repairs 2% armor/sec, Blue: -8% damage dealt.',
+        backpackTalent: 'Patriotic Boost: Increases debuff effects (Red: 12%, White: 3%, Blue: 12%).',
+        chestTalent: 'Waving the Flag: Reduces debuff rotation time from 2s to 1.5s.'
     },
     'Ongoing Directive': {
         bonuses: {
-            2: { weaponDamage: 15 },
-            3: { statusDuration: 30 },
+            2: { statusEffects: 15 },
+            3: { reloadSpeed: 30 },
             4: 'talent_directive'
         },
-        talent: 'Trauma Specialist: Status kills drop ammo that applies hollow points.'
+        talent: 'Rules of Engagement: Shooting status-affected enemies marks them. Killing marked enemy grants hollow-point ammo (full clip for you, half for team). Hollow-points amplify damage 20% and apply bleed.',
+        backpackTalent: 'Trauma Specialist: Increases bleed duration by 50% and bleed damage by 100%.',
+        chestTalent: 'Parabellum Rounds: Increases hollow-point damage amplification to 35%.'
     },
     'Hard Wired': {
         bonuses: {
-            2: { skillTier: 1 },
-            3: { skillHaste: 15 },
+            2: { skillHaste: 15 },
+            3: { skillDamage: 15, repairSkills: 30 },
             4: 'talent_hardwired'
         },
-        talent: 'Feedback Loop: Using a skill resets cooldowns of other skills.'
+        talent: 'Feedback Loop: Using or cancelling a skill reduces other skill cooldown by 30s, increases total skill damage and repair by 10% for 20s. 20s cooldown.',
+        backpackTalent: 'Short Circuit: Decreases Feedback Loop cooldown from 20s to 10s.',
+        chestTalent: 'Positive Reinforcement: Increases skill damage and repair boost from 10% to 25%.'
     },
     'Eclipse Protocol': {
         bonuses: {
-            2: { skillTier: 1 },
-            3: { statusDuration: 30 },
+            2: { statusEffects: 15 },
+            3: { skillHaste: 15, hazardProtection: 30 },
             4: 'talent_eclipse'
         },
-        talent: 'Indirect Transmission: Status spreads on kill.'
+        talent: 'Indirect Transmission: Status effects spread to enemies within 10m when you kill an affected target, refreshing duration by 50%.',
+        backpackTalent: 'Symptom Aggravator: Amplifies all damage to status-affected enemies by 30%.',
+        chestTalent: 'Proliferation: Increases spread range to 15m and refresh rate to 75%.'
     },
     'Rigger': {
         bonuses: {
-            2: { skillTier: 1 },
-            3: { skillDuration: 30 },
+            2: { skillHaste: 15 },
+            3: { skillDuration: 15 },
             4: 'talent_rigger'
         },
-        talent: 'Mechanical: Deploying skill resets cooldown of other skill.'
+        talent: 'Tend and Befriend: Interacting with deployed skills grants them 25% skill damage boost for 10s. Interactions include deploying, changing targets, or healing skills.',
+        backpackTalent: 'Complete Uptime: Cancelling skills resets their cooldowns.',
+        chestTalent: 'Best Buds: Increases skill damage boost from 25% to 50%.'
     },
     'Foundry Bulwark': {
         bonuses: {
-            2: { armor: 10 },
-            3: { bonusArmor: 3 },
+            2: { totalArmor: 10 },
+            3: { armorRegen: 1, shieldHealth: 50 },
             4: 'talent_foundry'
         },
-        talent: 'Makeshift Repairs: Gain bonus armor over time while in cover.'
+        talent: 'Makeshift Repairs: When you or your shield take damage, 25% of the damage is repaired over 10s.',
+        backpackTalent: 'Process Refinery: Reduces Makeshift Repairs time from 10s to 5s.',
+        chestTalent: 'Improved Materials: Increases Makeshift Repairs from 25% to 35%.'
     },
     'Future Initiative': {
         bonuses: {
-            2: { skillTier: 1 },
-            3: { repairSkills: 15 },
+            2: { repairSkills: 30 },
+            3: { skillHaste: 15, skillDuration: 30 },
             4: 'talent_future'
         },
-        talent: 'Ground Control: At full armor, repairs provide 15% weapon damage to allies.'
+        talent: 'Ground Control: Increases your and allies weapon and skill damage by 15% while at full armor. When you repair an ally, you and all allies within 5m are healed for 60% of that amount.',
+        backpackTalent: 'Strategic Combat Support: Increases proximity repair from 60% to 120%.',
+        chestTalent: 'Tactical Superiority: Increases damage boost from 15% to 25%.'
     },
     'Hunters Fury': {
         bonuses: {
-            2: { smgDamage: 15, shotgunDamage: 15 },
-            3: { armor: 10 },
+            2: { shotgunDamage: 15, smgDamage: 15 },
+            3: { armorOnKill: 20, healthOnKill: 50 },
             4: 'talent_huntersfury'
         },
-        talent: 'Apex Predator: Close kills grant 50% bonus armor and apply confusion.'
+        talent: 'Apex Predator: Enemies within 15m receive a debuff, amplifying your weapon damage by 20%. Killing a debuffed enemy disorients others within 5m and amplifies your damage by 5% for 10s, stacking up to 5 times.',
+        backpackTalent: 'Overwhelming Force: Increases disorient radius from 5m to 10m.',
+        chestTalent: 'Endless Hunger: Increases Apex Predator stack duration from 10s to 30s.'
+    },
+    'Umbra Initiative': {
+        bonuses: {
+            2: { critChance: 15 },
+            3: { reloadSpeed: 30 },
+            4: 'talent_umbra'
+        },
+        talent: 'From the Shadows: While in cover, gain 10 stacks/sec up to 50. Each stack increases CHD by 1% and RPM by 0.3%. Into the Light: While out of cover in combat, gain 10 stacks/sec up to 50 for 0.8% armor regen per stack.',
+        backpackTalent: 'Into the Light: Increases max stacks to 100, stack gain to 20, and consumption to 20.',
+        chestTalent: 'From the Shadows: Increases max stacks to 100 and stack gain to 20.'
+    },
+    'Aces and Eights': {
+        bonuses: {
+            2: { mmrDamage: 15 },
+            3: { headshotDamage: 30 },
+            4: 'talent_aces'
+        },
+        talent: "Dead Man's Hand: Flipping cards while landing MMR shots increases next shot damage by 30%. Stronger hands (Four of a Kind, Full House, Aces and Eights) increase boosted shots.",
+        backpackTalent: 'Ace in the Sleeve: Increases amplified shots by one.',
+        chestTalent: 'No Limit: Increases damage bonus from 30% to 50%.'
+    },
+    'Tip of the Spear': {
+        bonuses: {
+            2: { signatureWeaponDamage: 20 },
+            3: { weaponDamage: 10 },
+            4: 'talent_spear'
+        },
+        talent: 'Aggressive Recon: Signature weapon kills boost damage by 15% for 10s and grant +25% reload speed. Ammo regenerates every 60s.',
+        backpackTalent: 'Signature Moves: Doubles damage bonus after depleting sig weapon ammo and increases ammo regen.',
+        chestTalent: 'Specialized Destruction: Increases sig weapon damage bonus to 30% and generates ammo every third kill.'
+    },
+    'System Corruption': {
+        bonuses: {
+            2: { armorOnKill: 15 },
+            3: { disruptResist: 40, pulseResist: 40 },
+            4: 'talent_corruption'
+        },
+        talent: 'Hackstep Protocol: Replaces armor kits with a 20s cooldown skill that repairs 20% armor, grants 50% bonus armor, and hides nameplate for 5s. +2% weapon damage per 5% bonus armor, up to 20%.',
+        backpackTalent: 'Multithreaded Execution: Increases bonus armor from Hackstep to 100%.',
+        chestTalent: 'Compiler Optimization: Reduces Hackstep cooldown from 20s to 15s.'
+    },
+    'Hotshot': {
+        bonuses: {
+            2: { mmrDamage: 30, weaponHandling: 30 },
+            3: { headshotDamage: 30 },
+            4: 'talent_hotshot'
+        },
+        talent: 'Headache: First MMR headshot increases next headshot damage by 20%. Second consecutive headshot grants +10% armor. Third headshot refills magazine. Fourth+ headshots grant all three bonuses. Missing resets cycle.',
+        backpackTalent: 'Blessed: You can miss one headshot before the cycle resets.',
+        chestTalent: 'Daring: Increases bonus armor from 50% to 100%.'
     }
 };
 
@@ -276,58 +420,68 @@ const GEAR_SETS = {
 const EXOTICS = {
     'Coyotes Mask': {
         slot: 'mask',
-        talent: 'Pack Instincts: Critical hit damage bonus based on distance.',
+        talent: 'Pack Instincts: You and all group members gain a bonus based on your proximity to hostiles. 0-15m: +25% CHD, 15-25m: +10% CHC and +10% CHD, 25m+: +10% CHC.',
         bonuses: { critDamage: 25 }
     },
     'Vile': {
         slot: 'mask',
-        talent: 'Toxic Delivery: Status effects deal additional damage over time.',
-        bonuses: { statusDamage: 50 }
+        talent: 'Toxic Delivery: Status effects deal 10% of your weapon damage per second for 10 seconds.',
+        bonuses: { statusEffects: 10 }
     },
     'Memento': {
         slot: 'backpack',
-        talent: 'Kill Confirmed: Trophies grant stacking weapon damage and armor regen.',
-        bonuses: { weaponDamage: 30, armorRegen: 3 }
+        talent: 'Kill Confirmed: Enemies drop trophies on death. Trophies grant 3 short-term buff stacks (30% WD, 3% skill efficiency, 3% armor regen). Long-term buff increases to max 30% WD.',
+        bonuses: { weaponDamage: 30, skillEfficiency: 30, armorRegen: 3 }
     },
-    'The Sacrifice': {
+    'Tardigrade Armor System': {
         slot: 'chest',
-        talent: 'Perfect Glass Cannon: 30% damage but 60% increased damage taken.',
-        bonuses: { weaponDamage: 30 }
-    },
-    'Bullet King': {
-        slot: 'weapon',
-        talent: 'Bullet Hell: Never reload, kills refill magazine.',
-        bonuses: {}
+        talent: 'Ablative Nano-Plating: When you or an ally would be downed, gain 80% bonus armor for 10 seconds.',
+        bonuses: { armor: 10 }
     },
     'Ninjabike Messenger Kneepads': {
         slot: 'kneepads',
-        talent: 'Parkour: Automatically vault small obstacles.',
-        bonuses: { speedBonus: 15 }
+        talent: 'Parkour!: Performing a cover to cover or vaulting reloads your drawn weapon and grants +100% weapon handling for 5 seconds.',
+        bonuses: { weaponHandling: 15 }
     },
     'Sawyers Kneepads': {
         slot: 'kneepads',
-        talent: 'Calm Before Storm: Standing still builds damage bonus up to 30%.',
+        talent: 'Calm Before Storm: While not moving, gain 1% weapon damage every second, stacking up to 30%.',
         bonuses: { weaponDamage: 30 }
     },
     'Acostas Go-Bag': {
         slot: 'backpack',
-        talent: 'One in Hand: Throwing a grenade refreshes skills.',
-        bonuses: { skillHaste: 10 }
+        talent: 'One in Hand: Throwing a grenade grants overcharge for 15 seconds. Cooldown: 60 seconds.',
+        bonuses: { skillHaste: 10, skillDamage: 10, repairSkills: 10 }
     },
     'Btsu Data Gloves': {
         slot: 'gloves',
-        talent: 'Elemental Gadgetry: Skill proxies detonate hive charges.',
+        talent: 'Elemental Gadgetry: Skill kills grant overcharge for 15 seconds. Skills are automatically charged when in BTSU overcharge.',
         bonuses: { skillDamage: 15 }
     },
     'Imperial Dynasty': {
         slot: 'holster',
-        talent: "Dragon's Glare: Automatically apply burn to nearest enemy.",
-        bonuses: { statusDuration: 20 }
+        talent: "Dragon's Glare: While in combat, apply burn to the closest enemy within 20m every 4 seconds.",
+        bonuses: { statusEffects: 20 }
     },
     'Dodge City Gunslingers Holster': {
         slot: 'holster',
-        talent: 'Quick Draw: First pistol shot after switch gets massive crit bonus.',
+        talent: 'Quick Draw: While your pistol is holstered, gain stacking bonus. Pulling pistol consumes stacks to deal up to 400% weapon damage on first hit.',
         bonuses: { critDamage: 400 }
+    },
+    'Ridgeways Pride': {
+        slot: 'chest',
+        talent: 'Bloody Mess: Bleeding enemies you damage take 20% amplified damage. Killing bleeding enemies repairs 5% armor. Damaged bleeding enemies drop bleed pickups.',
+        bonuses: { weaponDamage: 15 }
+    },
+    'Waveform': {
+        slot: 'holster',
+        talent: 'Skill Sine-Wave: Gain periodic +15% skill damage every 5 seconds, alternating between your skills.',
+        bonuses: { skillDamage: 15 }
+    },
+    'Catharsis': {
+        slot: 'mask',
+        talent: 'Vicious Cycle: On headshot kill, create a 10m explosion dealing 500% damage. Gain 20% armor on kill.',
+        bonuses: { headshotDamage: 15 }
     }
 };
 
