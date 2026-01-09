@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Division 2 Build Optimizer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Division 2 Build Optimizer</h1>
+            <p class="subtitle">Upload your inventory and find the best build combinations</p>
+        </header>
+
+        <main>
+            <!-- Step 1: Download Template -->
+            <section class="card">
+                <h2>Step 1: Download Template</h2>
+                <p>Download the CSV template and fill it with your inventory items.</p>
+                <button id="downloadTemplate" class="btn btn-primary">
+                    📥 Download CSV Template
+                </button>
+            </section>
+
+            <!-- Step 2: Upload Inventory -->
+            <section class="card">
+                <h2>Step 2: Upload Your Inventory</h2>
+                <p>Upload your filled CSV file to analyze your gear.</p>
+                <div class="upload-zone" id="uploadZone">
+                    <input type="file" id="csvInput" accept=".csv" hidden>
+                    <label for="csvInput" class="upload-label">
+                        <span class="upload-icon">📁</span>
+                        <span>Click to upload or drag & drop your CSV</span>
+                    </label>
+                </div>
+                <div id="uploadStatus" class="status"></div>
+            </section>
+
+            <!-- Step 3: Select Build Type -->
+            <section class="card">
+                <h2>Step 3: Select Build Type</h2>
+                <div class="build-types">
+                    <button class="btn btn-build" data-type="dps">
+                        <span class="icon">💥</span>
+                        <span>DPS</span>
+                    </button>
+                    <button class="btn btn-build" data-type="skills">
+                        <span class="icon">🔧</span>
+                        <span>Skills</span>
+                    </button>
+                    <button class="btn btn-build" data-type="support">
+                        <span class="icon">💚</span>
+                        <span>Support</span>
+                    </button>
+                    <button class="btn btn-build" data-type="raids">
+                        <span class="icon">👥</span>
+                        <span>Raids</span>
+                    </button>
+                    <button class="btn btn-build" data-type="incursion">
+                        <span class="icon">☠️</span>
+                        <span>Incursion</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Step 4: Optimize -->
+            <section class="card">
+                <h2>Step 4: Optimize Build</h2>
+                <button id="optimizeBtn" class="btn btn-success" disabled>
+                    🚀 Find Best Build
+                </button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="card results-card" id="resultsSection" hidden>
+                <h2>🏆 Recommended Build</h2>
+                <div id="buildSummary" class="build-summary"></div>
+                <div id="gearSlots" class="gear-slots"></div>
+                <div id="buildStats" class="build-stats"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Division 2 Build Optimizer | Not affiliated with Ubisoft or Massive Entertainment</p>
+        </footer>
+    </div>
+
+    <script src="js/gear-data.js"></script>
+    <script src="js/csv-template.js"></script>
+    <script src="js/optimizer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
