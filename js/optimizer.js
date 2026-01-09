@@ -1,6 +1,11 @@
 // Division 2 Build Optimizer - Optimization Algorithms
 
 const BuildOptimizer = {
+    // Exotic limit constants (Division 2 rules)
+    // Players can equip max 1 exotic weapon + 1 exotic gear piece (2 total)
+    // This optimizer handles gear, so we enforce max 1 exotic gear piece
+    MAX_EXOTIC_GEAR: 1,
+
     // Build type configurations
     buildConfigs: {
         dps: {
@@ -83,13 +88,17 @@ const BuildOptimizer = {
         // Generate brand bonuses
         const brandBonuses = this.calculateBrandBonuses(bestBuild);
         
+        // Validate exotic limit
+        const exoticValidation = this.validateExoticLimit(bestBuild);
+        
         return {
             buildType: config.name,
             description: config.description,
             items: bestBuild,
             stats,
             brandBonuses,
-            score: this.calculateBuildScore(bestBuild, config)
+            score: this.calculateBuildScore(bestBuild, config),
+            exoticInfo: exoticValidation
         };
     },
 
@@ -120,11 +129,23 @@ const BuildOptimizer = {
         });
 
         // Fallback: if no good combination found, pick best individual items
+        // while respecting exotic limit
         if (!bestCombination) {
             bestCombination = {};
+            let exoticUsed = false;
+            
             slots.forEach(slot => {
                 if (scoredItems[slot].length > 0) {
-                    bestCombination[slot] = scoredItems[slot][0].item;
+                    // Find best valid item for this slot
+                    for (const { item } of scoredItems[slot]) {
+                        const isExotic = item.rarity === 'exotic';
+                        if (isExotic && exoticUsed) {
+                            continue; // Skip if we already have an exotic
+                        }
+                        bestCombination[slot] = item;
+                        if (isExotic) exoticUsed = true;
+                        break;
+                    }
                 }
             });
         }
@@ -147,12 +168,15 @@ const BuildOptimizer = {
         const maxCombos = 729; // 3^6
         let count = 0;
 
-        const generateRecursive = (slotIndex, current) => {
+        const generateRecursive = (slotIndex, current, exoticCount) => {
             if (count >= maxCombos) return;
             
             if (slotIndex === slots.length) {
-                combinations.push({ ...current });
-                count++;
+                // Only add valid combinations that respect exotic limit
+                if (exoticCount <= this.MAX_EXOTIC_GEAR) {
+                    combinations.push({ ...current });
+                    count++;
+                }
                 return;
             }
 
@@ -160,18 +184,41 @@ const BuildOptimizer = {
             const items = topItems[slot];
             
             if (items.length === 0) {
-                generateRecursive(slotIndex + 1, current);
+                generateRecursive(slotIndex + 1, current, exoticCount);
                 return;
             }
 
             items.forEach(({ item }) => {
+                const isExotic = item.rarity === 'exotic';
+                const newExoticCount = exoticCount + (isExotic ? 1 : 0);
+                
+                // Skip this item if it would exceed exotic limit
+                if (newExoticCount > this.MAX_EXOTIC_GEAR) {
+                    return;
+                }
+                
                 current[slot] = item;
-                generateRecursive(slotIndex + 1, current);
+                generateRecursive(slotIndex + 1, current, newExoticCount);
             });
         };
 
-        generateRecursive(0, {});
+        generateRecursive(0, {}, 0);
         return combinations;
+    },
+
+    // Validate that a build respects the exotic gear limit
+    validateExoticLimit(build) {
+        const items = Object.values(build).filter(Boolean);
+        const exoticCount = items.filter(item => item.rarity === 'exotic').length;
+        return {
+            valid: exoticCount <= this.MAX_EXOTIC_GEAR,
+            exoticCount,
+            maxAllowed: this.MAX_EXOTIC_GEAR,
+            exoticItems: items.filter(item => item.rarity === 'exotic').map(item => ({
+                slot: item.slot,
+                name: item.name || item.brand
+            }))
+        };
     },
 
     // Score a single item based on build config
