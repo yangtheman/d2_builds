@@ -2,6 +2,10 @@
 
 A web-based tool to optimize your Division 2 gear builds based on your inventory. Upload your gear and find the best combinations for DPS, Skills, Support, Raids, and Incursions.
 
+<img width="1722" height="958" alt="Screenshot 2026-01-14 at 2 12 11 PM" src="https://github.com/user-attachments/assets/5f98d9d7-f163-4b25-96d2-061b3c7bf685" />
+
+<img width="1724" height="958" alt="Screenshot 2026-01-14 at 2 12 43 PM" src="https://github.com/user-attachments/assets/380b5234-a113-4f21-8da1-48265769896b" />
+
 ## 🎮 Features
 
 - **Google Sheets Template**: Easy-to-use spreadsheet template for your inventory
@@ -11,6 +15,8 @@ A web-based tool to optimize your Division 2 gear builds based on your inventory
 - **Privacy First**: Works entirely client-side — your data never leaves your browser
 
 ## 📋 How to Use
+
+### Step 0: Go to https://d2builds.miscosa.com/
 
 ### Step 1: Copy the Google Sheets Template
 1. Open the [Inventory Template](https://docs.google.com/spreadsheets/d/1FR3JVyLr3ImyVn5QL2Q8tOKmshi3TgVunAVsyehQ-_U/copy)
